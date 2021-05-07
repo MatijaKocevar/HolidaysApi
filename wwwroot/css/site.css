@@ -1,0 +1,12 @@
+﻿html, body {
+    background-color: #303030;
+    color: #FFF;
+}
+
+.holidaysTable tr td{
+    border: 1px solid #FFF;
+}
+
+.holidaysTable{
+    margin-top: 100px; 
+}

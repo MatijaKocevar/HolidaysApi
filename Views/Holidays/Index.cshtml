@@ -1,0 +1,33 @@
+﻿@model HolidaysApi.Models.Holidays
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+
+    @*simple form to input year*@
+    <form method="post">
+        <h1 class="display-4">Enter year to get holidays</h1>
+        <input type="text" id="year" name="year" ><br>
+        <input type="submit" />
+    </form>
+
+    @*table for displaying data*@
+    <table class ="holidaysTable" style="width:100%">
+        <tr>
+            <th>Holiday</th>
+            <th>Date</th>
+            <th>Weekday</th>
+        </tr>
+        @foreach (var item in Model.holidays)
+        {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.name)</td>
+        <td>@Html.DisplayFor(modelItem => item.day). @Html.DisplayFor(modelItem => item.month). @Html.DisplayFor(modelItem => item.year)</td>
+        <td>@Html.DisplayFor(modelItem => item.weekday)</td>
+    </tr>
+        }
+    </table>
+
+</div>
