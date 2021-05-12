@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Holidays.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Holidays
 {
@@ -26,7 +27,10 @@ namespace Holidays
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<HolidayContext>(opt => opt.UseSqlServer
+            (
+                Configuration.GetConnectionString("HolidayConnection")
+            ));
             services.AddControllers();
             services.AddScoped<IHolidayRepo, MockHolidayRepo>();
         }
