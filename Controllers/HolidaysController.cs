@@ -10,7 +10,13 @@ namespace Holidays.Controllers
     [ApiController]
     public class HolidaysController : ControllerBase
     {
-        private readonly MockHolidayRepo _repository = new MockHolidayRepo();
+        private readonly IHolidayRepo _repository;
+
+        public HolidaysController(IHolidayRepo repository)
+        {
+            _repository = repository;
+        }
+
         // GET api/holidays
         [HttpGet]
         public ActionResult<IEnumerable<Holiday>> GetCurrentYearHolidays()
