@@ -11,22 +11,22 @@ namespace Holidays.Controllers
     public class HolidaysController : ControllerBase
     {
         private readonly IHolidayRepo _repository;
-
+        //Constructor
         public HolidaysController(IHolidayRepo repository)
         {
             _repository = repository;
         }
 
-        // GET api/holidays
+        // GET api/holidays - Returns list of holidays for current year
         [HttpGet]
         public ActionResult<IEnumerable<Holiday>> GetCurrentYearHolidays()
         {
-            var holidayItems = _repository.GetCurrentYearHolidays();
+            var holidays = _repository.GetCurrentYearHolidays();
 
-            return Ok(holidayItems);
+            return Ok(holidays);
         }
 
-        // GET api/holidays/2000
+        // GET api/holidays/2000 - Returns list of holidays for specified year
         [HttpGet("{year}")]
         public ActionResult<Holiday> getHolidaysByYear(int year)
         {

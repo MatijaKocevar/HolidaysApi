@@ -8,9 +8,9 @@ namespace Holidays.Scripts
     {
         public static IEnumerable<Holiday> getData(int year)
         {
+            //easter algorithm
             int day = 0;
             int month = 3;
-
             int g = year % 19;
             int c = year / 100;
             int h = (c - (int)(c / 4) - (int)((8 * c + 13) / 25) + 19 * g + 15) % 30;

@@ -7,11 +7,10 @@ namespace Holidays.Data
 {
     public class MockHolidayRepo : IHolidayRepo
     {
+
         public IEnumerable<Holiday> GetCurrentYearHolidays()
         {
-            int year = Int32.Parse(DateTime.Now.ToString("yyyy"));
-
-            var holidays = getHolidays.getData(year);
+            var holidays = getHolidays.getData(Int32.Parse(DateTime.Now.ToString("yyyy")));
 
             return holidays;
         }
