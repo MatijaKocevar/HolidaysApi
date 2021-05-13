@@ -1,13 +1,17 @@
 using System;
 using System.Collections.Generic;
 using Holidays.Models;
+using Holidays.Data;
+using System.Linq;
 
 namespace Holidays.Scripts
 {
     public class getHolidays
     {
-        public static IEnumerable<Holiday> getData(int year)
+        public static IEnumerable<Holiday> getData(int year, HolidayContext context)
         {
+            var holidays = context.Holidays.ToList();
+
             //easter algorithm
             int day = 0;
             int month = 3;
@@ -23,26 +27,14 @@ namespace Holidays.Scripts
                 month++;
                 day -= 31;
             }
+            //
 
-            var holidays = new List<Holiday>
-            {
-                new Holiday { id = 0, name = "New year", weekday = "", day = 1, month = 1, year = year },
-                new Holiday { id = 1, name = "New year", weekday = "", day = 2, month = 1, year = year },
-                new Holiday { id = 2, name = "Prešeren's day", weekday = "", day = 8, month = 2, year = year},
-                new Holiday { id = 3, name = "Easter Monday", weekday = "", day = day+1, month = month, year = year },
-                new Holiday { id = 4, name = "Day of Uprising Against Occupation", weekday = "", day = 27, month = 4, year = year },
-                new Holiday { id = 5, name = "Labour Day", weekday = "", day = 1, month = 5, year = year },
-                new Holiday { id = 6, name = "Labour Day", weekday = "", day = 2, month = 5, year = year },
-                new Holiday { id = 7, name = "Statehood Day", weekday = "", day = 25, month = 6, year = year },
-                new Holiday { id = 8, name = "Assumption of Mary", weekday = "", day = 15, month = 8, year = year },
-                new Holiday { id = 9, name = "Reformation Day", weekday = "", day = 31, month = 10, year = year },
-                new Holiday { id = 10, name = "All Saints' Day", weekday = "", day = 1, month = 11, year = year },
-                new Holiday { id = 11, name = "Christmas Day", weekday = "", day = 25, month = 12, year = year },
-                new Holiday { id = 12, name = "Independence and Unity Day", weekday = "", day = 26, month = 12, year = year }
-            };
+            holidays[3].day = day + 1;
+            holidays[3].month = month;
 
             for (int i = 0; i < holidays.Count; i++)
             {
+                holidays[i].year = year;
                 DateTime dateValue = new DateTime(holidays[i].year, holidays[i].month, holidays[i].day);
                 holidays[i].weekday = dateValue.ToString("dddd");
             }
