@@ -16,17 +16,12 @@ namespace Holidays.Data
 
         public IEnumerable<Holiday> GetCurrentYearHolidays()
         {
-
-            var holidays = getHolidays.getData(Int32.Parse(DateTime.Now.ToString("yyyy")), _context);
-
-            return holidays;
+            return getHolidays.getData(Int32.Parse(DateTime.Now.ToString("yyyy")), _context);
         }
 
         public IEnumerable<Holiday> GetHolidaysByYear(int year)
         {
-            var holidays = getHolidays.getData(year, _context);
-
-            return holidays;
+            return getHolidays.getData(year, _context);
         }
     }
 }

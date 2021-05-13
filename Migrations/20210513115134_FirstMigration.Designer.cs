@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Holidays.Migrations
 {
     [DbContext(typeof(HolidayContext))]
-    [Migration("20210512142345_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210513115134_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,7 +38,6 @@ namespace Holidays.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("weekday")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("year")

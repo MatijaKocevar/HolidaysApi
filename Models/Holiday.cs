@@ -4,6 +4,7 @@ namespace Holidays.Models
 {
     public class Holiday
     {
+        //Class for mapping database
         [Key]
         public int id { get; set; }
         [Required]
@@ -14,7 +15,6 @@ namespace Holidays.Models
         public int month { get; set; }
         [Required]
         public int year { get; set; }
-        [Required]
         public string weekday { get; set; }
     }
 

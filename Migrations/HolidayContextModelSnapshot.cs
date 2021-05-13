@@ -36,7 +36,6 @@ namespace Holidays.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("weekday")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("year")

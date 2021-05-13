@@ -2,7 +2,7 @@
 
 namespace Holidays.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace Holidays.Migrations
                     day = table.Column<int>(type: "int", nullable: false),
                     month = table.Column<int>(type: "int", nullable: false),
                     year = table.Column<int>(type: "int", nullable: false),
-                    weekday = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    weekday = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -20,11 +20,14 @@ namespace Holidays
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //connect SqlServer using User secrets
             services.AddDbContext<HolidayContext>(opt => opt.UseSqlServer
             (
                 Configuration.GetConnectionString("HolidayConnection")
             ));
             services.AddControllers();
+
+            //dependency injection - New object per client request
             services.AddScoped<IHolidayRepo, SqlHolidayRepo>();
         }
 
