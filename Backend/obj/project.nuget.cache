@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X0rNDVYAtqrSRB7DuaOte5qJac7SGUoPh8GFcnoYSNCYoH46QAKlo7y8o1E3nZs8vv/+oHbmiadieMzg1OI5uA==",
+  "dgSpecHash": "/675JQQwtD2sYIVE2w9jJpFghFhMVlY/EjLTYwpnedGFyaSUVzpqZTmgOVz9MJqLyES5Go5VUcXpXyKxTsyXEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\Holidays.csproj",
+  "projectFilePath": "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mkocevar\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Mkocevar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
