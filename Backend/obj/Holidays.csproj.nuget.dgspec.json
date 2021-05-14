@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj": {}
+    "C:\\Users\\Mkocevar\\Documents\\Programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj": {
+    "C:\\Users\\Mkocevar\\Documents\\Programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj",
+        "projectUniqueName": "C:\\Users\\Mkocevar\\Documents\\Programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj",
         "projectName": "Holidays",
-        "projectPath": "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj",
+        "projectPath": "C:\\Users\\Mkocevar\\Documents\\Programiranje\\api3_1\\Holidays\\backend\\Holidays.csproj",
         "packagesPath": "C:\\Users\\Mkocevar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mkocevar\\documents\\programiranje\\api3_1\\Holidays\\backend\\obj\\",
+        "outputPath": "C:\\Users\\Mkocevar\\Documents\\Programiranje\\api3_1\\Holidays\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
