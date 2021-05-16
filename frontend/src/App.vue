@@ -2,18 +2,23 @@
   <div id="app">
     <div class="text-center">
       <!-- simple form to input year -->
-      <form method="get">
-        <h1>Enter year to get holidays</h1>
-        <input type="text" /><br />
-        <input type="submit" />
+      <form onsubmit="return false">
+        <h1>Vnesi leto za izpis praznikov</h1>
+        <input
+          placeholder="Type year..."
+          v-model="year"
+          type="text"
+          @keypress.enter="getHolidaysByYear(year)"
+        />
+        <input type="submit" @click="getHolidaysByYear(year)" />
       </form>
 
       <!-- table for displaying data -->
       <table class="holidaysTable">
         <tr>
-          <th>Holiday</th>
-          <th>Date</th>
-          <th>Weekday</th>
+          <th>Praznik</th>
+          <th>Datum</th>
+          <th>Dan v tednu</th>
         </tr>
         <tr v-for="item of holidays" :key="item.id">
           <td>{{ item.name }}</td>
@@ -26,19 +31,27 @@
 </template>
 
 <script>
-const URL = "https://localhost:5001/api/holidays";
-
 export default {
-  name: "App",
+  name: "app",
   data() {
     return {
+      year: "",
       holidays: [],
     };
   },
-  async mounted() {
-    const res = await fetch(URL).then((response) => response.json());
-    console.log(res);
+  async created() {
+    const res = await fetch("https://localhost:5001/api/holidays").then((response) =>
+      response.json()
+    );
     return (this.holidays = res);
+  },
+  methods: {
+    async getHolidaysByYear(id) {
+      const res = await fetch(`https://localhost:5001/api/holidays/${id}`).then((response) =>
+        response.json()
+      );
+      return (this.holidays = res);
+    },
   },
 };
 </script>
@@ -46,8 +59,13 @@ export default {
 <style>
 html,
 body {
+  padding: 1rem;
   background-color: #303030;
   color: #fff;
+}
+
+.button {
+  margin: 10px;
 }
 
 .holidaysTable tr td {
@@ -55,7 +73,7 @@ body {
 }
 
 .holidaysTable {
-  margin-top: 100px;
+  margin-top: 2rem;
   width: 80%;
   margin-left: auto;
   margin-right: auto;

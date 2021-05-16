@@ -34,16 +34,9 @@ namespace Holidays.Scripts
             holidays[3].month = month;
 
             //inputs Pentecost date to list
-            if (holidays[3].day + 18 > 30)
-            {
-                holidays[7].day = ((holidays[3].day - 1) + 18) - 30;
-                holidays[7].month = holidays[3].month + 2;
-            }
-            else
-            {
-                holidays[7].day = holidays[3].day + 18;
-                holidays[7].month = holidays[3].month + 1;
-            }
+            DateTime pentecostDate = new DateTime(year, holidays[3].month, holidays[3].day).AddDays(48);
+            holidays[7].day = pentecostDate.Day;
+            holidays[7].month = pentecostDate.Month;
 
             //inputs year and weekdays to list
             for (int i = 0; i < holidays.Count; i++)
