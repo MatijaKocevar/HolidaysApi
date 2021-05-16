@@ -5,7 +5,8 @@
       <form onsubmit="return false">
         <h1>Vnesi leto za izpis praznikov</h1>
         <input
-          placeholder="Type year..."
+          style="text-align:center; margin: 0 10px 0 10px; width: 70px;"
+          placeholder="YYYY"
           v-model="year"
           type="text"
           @keypress.enter="getHolidaysByYear(year)"
@@ -50,6 +51,7 @@ export default {
       const res = await fetch(`https://localhost:5001/api/holidays/${id}`).then((response) =>
         response.json()
       );
+      this.year = "";
       return (this.holidays = res);
     },
   },
