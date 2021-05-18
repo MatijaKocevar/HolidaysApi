@@ -5,7 +5,7 @@
       <form onsubmit="return false">
         <h1>Vnesi leto za izpis praznikov</h1>
         <input
-          style="text-align:center; margin: 0 10px 0 10px; width: 70px;"
+          class="textbox"
           placeholder="YYYY"
           v-model="year"
           type="text"
@@ -21,6 +21,7 @@
           <th>Datum</th>
           <th>Dan v tednu</th>
         </tr>
+        <!-- looping through items -->
         <tr v-for="item of holidays" :key="item.id">
           <td>{{ item.name }}</td>
           <td>{{ item.day + "." + item.month + "." + item.year }}</td>
@@ -40,6 +41,7 @@ export default {
       holidays: [],
     };
   },
+  //lifecycle hook..Fetch data when created component
   async created() {
     const res = await fetch("https://localhost:5001/api/holidays").then((response) =>
       response.json()
@@ -47,8 +49,9 @@ export default {
     return (this.holidays = res);
   },
   methods: {
-    async getHolidaysByYear(id) {
-      const res = await fetch(`https://localhost:5001/api/holidays/${id}`).then((response) =>
+    //fetch with ID..changes watched data
+    async getHolidaysByYear(year) {
+      const res = await fetch(`https://localhost:5001/api/holidays/${year}`).then((response) =>
         response.json()
       );
       this.year = "";
@@ -66,8 +69,10 @@ body {
   color: #fff;
 }
 
-.button {
-  margin: 10px;
+.textbox {
+  text-align: center;
+  margin: 0 10px 0 10px;
+  width: 70px;
 }
 
 .holidaysTable tr td {

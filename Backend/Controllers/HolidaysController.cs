@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Holidays.Data;
 using Holidays.Models;
@@ -5,9 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Holidays.Controllers
 {
-    //api/holidays
-    [Route("api/holidays")]
-    [ApiController]
+    [Route("api/holidays")] //attributes
+    [ApiController] //attribute
     public class HolidaysController : ControllerBase
     {
         private readonly IHolidayRepo _repository;
@@ -26,9 +26,14 @@ namespace Holidays.Controllers
 
         // GET api/holidays/2000 - Returns list of holidays for specified year
         [HttpGet("{year}")]
-        public ActionResult<Holiday> getHolidaysByYear(int year)
+        public ActionResult<Holiday> getHolidaysByYear(string year)
         {
-            if (year < 1583)
+            if (!Int32.TryParse(year, out int y))
+            {
+                return BadRequest("Not a number");
+            }
+            else
+            if (Int32.Parse(year) < 1583)
             {
                 return BadRequest("Can't get holidays before 1583. No Gregorian Calendar");
             }

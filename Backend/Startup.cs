@@ -30,6 +30,7 @@ namespace Holidays
             //dependency injection - New object per client request
             services.AddScoped<IHolidayRepo, SqlHolidayRepo>();
 
+            //access database from different domain
             services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyOrigin()));
         }
 

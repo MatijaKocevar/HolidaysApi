@@ -5,7 +5,8 @@ using Holidays.Scripts;
 
 namespace Holidays.Data
 {
-    public class SqlHolidayRepo : IHolidayRepo
+
+    public class SqlHolidayRepo : IHolidayRepo     //implementation of interface
     {
         private readonly HolidayContext _context;
 
@@ -19,9 +20,9 @@ namespace Holidays.Data
             return getHolidays.getData(Int32.Parse(DateTime.Now.ToString("yyyy")), _context);
         }
 
-        public IEnumerable<Holiday> GetHolidaysByYear(int year)
+        public IEnumerable<Holiday> GetHolidaysByYear(string year)
         {
-            return getHolidays.getData(year, _context);
+            return getHolidays.getData(Int32.Parse(year), _context);
         }
     }
 }
